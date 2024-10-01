@@ -21,3 +21,6 @@ dados.js: Arquivo JavaScript que contém um array com os dados das receitas.
 HTML: Estrutura da página.
 CSS: Estilização da página.
 JavaScript: Lógica da aplicação.
+
+## Acesso ao app - Versão beta
+https://receitas-julie.vercel.app/
