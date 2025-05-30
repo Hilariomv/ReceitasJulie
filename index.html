@@ -3,27 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Julie's Kitchen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <head>
-        <h1>Julie's Kitchen</h1>
-    </head>
-    <main>
-        <section>
-            <input type="text" name="search" placeholder="Pesquise o menu" id="campo-pesquisa">
-            <button onclick="pesquisar()">Pesquisar</button>
-        </section>
-        <section class="resultados-pesquisa" id="resultados-pesquisa">            
-        </section>
-    </main> 
+    <div class="bg-animation">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <header>
+        <h1 class="logo">Julie's Kitchen</h1>
+        <p class="subtitle">Receitas deliciosas para toda família ✨</p>
+    </header>
+
+    <div class="search-container">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Busque por receitas, ingredientes..." id="campo-pesquisa">
+            <button class="search-btn" onclick="pesquisar()">Buscar</button>
+        </div>
+    </div>
+
+    <main class="results-container">
+        <div id="resultados-pesquisa" class="results-grid">
+            <div class="empty-state">
+                <div class="empty-icon">👩‍🍳</div>
+                <h3 class="empty-title">Pronta para cozinhar?</h3>
+                <p class="empty-subtitle">Digite o nome de uma receita ou ingrediente para começar</p>
+            </div>
+        </div>
+    </main>
+
     <footer>
-        <p>2024 - Receitas certas da Julie. Todos os direitos reservados</p>
-        <p>Entre em contato pelo email: julie.mgg@gmail.com</p>
-    </footer> 
+        <p id="footer-year">© 2024 - Julie's Kitchen. Todos os direitos reservados.</p>
+        <p>Entre em contato: <a href="mailto:julie.mgg@gmail.com">julie.mgg@gmail.com</a></p>
+    </footer>
+
     <script src="dados.js"></script>
     <script src="app.js"></script>
-    
 </body>
 </html>
