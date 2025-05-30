@@ -1,176 +1,433 @@
-/* Importa a fonte Chakra Petch do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Estiliza o corpo da página */
 body {
-    font-family: 'Georgia', sans-serif; /* Define a fonte padrão */
-    /*background-color: #DDDDDD; /* Cor de fundo da página */
-    background-image: url('https://img.freepik.com/fotos-premium/ingredientes-alimentares-e-papel-isolados-no-fundo-branco_182252-5796.jpg');
-    /*background: linear-gradient(to right, #c56363, #e00c0c);*/
-    display: flex; /* Usa Flexbox para layout */
-    flex-direction: column; /* Alinha os itens na vertical */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    height: 115vh; /* Preenche a altura total da viewport */
-    margin: 0; /* Remove a margem padrão */
-    padding: 0; /* Remove o padding padrão */
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    color: #333; /* Default text color for card content */
 }
 
-/* Estiliza os títulos h1 */
-h1 {
-    font-size: 2.5rem; /* Tamanho da fonte */
-    color: #000000; /* Cor do texto */
-    text-align: center; /* Alinha o texto ao centro */
-    letter-spacing: 0.4rem; /* Espaçamento entre letras */
+/* Animated background elements */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* Estiliza as seções da página */
-section {
-    display: flex; /* Usa Flexbox para layout */
-    flex-direction: column; /* Alinha os itens na vertical */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    margin-bottom: 3rem; /* Espaçamento abaixo de cada seção */
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
 }
 
-/* Estiliza os inputs dentro das seções */
-section input {
-    width: 30rem; /* Largura dos inputs */
-    border: none; /* Remove a borda padrão */
-    padding: 1rem; /* Espaçamento interno */
-    border-radius: 1.5rem; /* Borda arredondada */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos inputs */
-    color: #45474B; /* Cor do texto */
-    font-size: 1rem; /* Tamanho da fonte */
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+.floating-element:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
 }
 
-/* Estiliza os botões dentro das seções */
-section button {
-    padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
-    border: none; /* Remove a borda padrão */
-    border-radius: 1.5rem; /* Borda arredondada */
-    background-color: #30475E; /* Cor de fundo do botão */
-    color: #F5F7F8; /* Cor do texto do botão */
-    font-size: 1rem; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+.floating-element:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
 }
 
-/* Adiciona efeito hover ao botão de pesquisa */
-section button:hover {
-    background-color: #30475E; /* Muda a cor de fundo ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
+.floating-element:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 4s;
 }
 
-/* Estiliza a caixa de resultados da pesquisa */
-.resultados-pesquisa {
-    width: 100rem; /* Largura máxima da caixa de resultados */
-    height: 46vh; /* Altura máxima da caixa de resultados */
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
-    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
-    padding: 1rem; /* Espaçamento interno */
-    border-radius: 0.6rem; /* Borda arredondada */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
 }
 
-/* Estiliza cada item de resultado */
-.item-resultado {
-    background: #FFFFFF; /* Cor de fundo dos itens */
-    border-radius: 1.5rem; /* Borda arredondada */
-    padding: 1rem; /* Espaçamento interno */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.418); /* Sombra leve */
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
 }
 
-/* Estiliza os títulos dentro dos itens de resultado */
-.item-resultado h2 {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: #312222; /* Cor do texto */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #f8f9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent; /* Standard property */
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
 }
 
-/* Estiliza os links dentro dos itens de resultado */
-.item-resultado a {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: #30475E; /* Cor do texto dos links */
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
 }
 
-/* Estiliza os links quando são passados o mouse sobre */
-.item-resultado a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+/* Search Section */
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
 }
 
-/* Estiliza a descrição meta dentro dos itens de resultado */
-.descricao-meta {
-    color: #45474B; /* Cor do texto */
-    margin: 0.5rem 0; /* Margem acima e abaixo */
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
 }
 
-/* teste*/
-.subtitulo {
-    color: #7e2121; /* Cor do texto */
-    margin: 0rem 0; /* Margem acima e abaixo */
-    font-size: 1.2rem; /* Tamanho da fonte */
-    font-weight: bold;
+.search-input {
+    width: 100%;
+    padding: 1.2rem 1.5rem 1.2rem 3.5rem; /* Right padding adjusted for button */
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Estiliza o rodapé da página */
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    pointer-events: none; /* So it doesn't interfere with input click */
+}
+
+.search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center button */
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 20px;
+    padding: 0.8rem 1.5rem; /* Adjust padding as needed */
+    height: calc(100% - 16px); /* Make button height responsive to input padding */
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    transform: translateY(calc(-50% - 2px)); /* Adjust hover transform */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Results Container */
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem; /* Added bottom padding */
+    min-height: 300px; /* Adjusted min-height */
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly smaller min for cards */
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Recipe Cards */
+.recipe-card {
+    background: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    /* backdrop-filter: blur(20px); Removed for potentially better performance on some devices, can be added back */
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother transition */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex; /* Added for flex layout if needed */
+    flex-direction: column; /* Stack header and content vertically */
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+}
+
+.recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; /* Slightly larger title */
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allows content to fill space if card heights vary */
+}
+
+/* This targets your <strong> tags within content-text if needed, or use a specific class */
+.content-text strong {
+    color: #555; /* Example: slightly darker for emphasis */
+    font-weight: 600;
+}
+
+.section-title {
+    font-weight: 600;
+    color: #2d3748; /* Dark grayish blue */
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem; /* Slightly larger section titles */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.section-title:first-child {
+    margin-top: 0;
+}
+
+.section-title::before { /* Decorative element for section titles */
+    content: '';
+    width: 4px;
+    height: 18px; /* Slightly taller */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.content-text {
+    color: #4a5568; /* Slate gray */
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+.content-text p, .content-text div { /* Ensure paragraphs inside .content-text have spacing if they exist */
+    margin-bottom: 0.5em;
+}
+.content-text br { /* Ensure <br> tags are properly spaced if needed, usually not an issue */
+    display: block; /* or 'content' with 'margin' */
+    margin-bottom: 0.5em; /* Adjust spacing after a <br> if desired */
+}
+
+
+.tip-section {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0aa 100%); /* Lighter, slightly transparent */
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 1px solid rgba(200, 210, 220, 0.5);
+}
+
+.tip-title {
+    color: #2b6cb0; /* Indigo */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.tip-text {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Empty State & No Results */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%; /* Ensure it spans the grid column if it's the only child */
+    grid-column: 1 / -1; /* Make it span all columns in the grid */
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.empty-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.empty-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Footer */
 footer {
-    background-color: #F5F7F8; /* Cor de fundo do rodapé */
-    color: #45474B; /* Cor do texto */
-    text-align: center; /* Alinha o texto ao centro */
-    padding: 0; /* Espaçamento interno */
-    width: 100%; /* Largura total da página */
-    position: absolute; /* Posiciona o rodapé */
-    bottom: 0; /* Alinha ao fundo da página */
-    font-size: 1rem; /* Tamanho da fonte */
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem; /* Ensure space above footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem; /* Tamanho da fonte em telas menores */
-        letter-spacing: 0.2rem; /* Espaçamento entre letras em telas menores */
+    .logo {
+        font-size: 2.8rem; /* Adjusted */
+    }
+    .subtitle {
+        font-size: 1rem;
     }
 
-    section input {
-        width: 25rem; /* Largura dos inputs em telas menores */
-        padding: 0.8rem; /* Espaçamento interno em telas menores */
+    .results-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust card min-width */
+        gap: 1.5rem;
     }
 
-    .resultados-pesquisa {
-        width: 40rem; /* Largura da caixa de resultados em telas menores */
-        height: 40vh; /* Altura da caixa de resultados em telas menores */
+    .search-box {
+        margin: 0 1rem; /* Add horizontal margin for search box on smaller screens */
+    }
+    .search-container {
+        padding: 0 1rem;
+    }
+    .results-container {
+        padding: 0 1rem 2rem;
     }
 
-    .item-resultado h2 {
-        font-size: 1.3rem; /* Tamanho da fonte dos títulos em telas menores */
+    .floating-element { /* Optionally hide fewer or make them smaller */
+        display: none; /* Hides all floating elements on smaller screens */
     }
 }
 
-/* Responsividade para celulares */
 @media (max-width: 480px) {
-
-    h1 {
-        font-size: 1.8rem; /* Tamanho da fonte em telas pequenas */
-        letter-spacing: 0.1rem; /* Espaçamento entre letras em telas pequenas */
+    .logo {
+        font-size: 2.2rem; /* Adjusted */
     }
 
-    section input {
-        width: 17rem; /* Largura total dos inputs em telas pequenas */
+    .search-input {
+        padding: 1rem 1rem 1rem 3rem; /* Adjusted padding */
+        font-size: 0.9rem;
+    }
+    .search-btn {
+        padding: 0.7rem 1rem; /* Adjust button padding */
+        font-size: 0.9rem;
     }
 
-    section button {
-        padding: 0.6rem 1rem; /* Espaçamento interno do botão em telas pequenas */
-        font-size: 0.9rem; /* Tamanho da fonte do botão em telas pequenas */
+    .card-content {
+        padding: 1.2rem;
+    }
+    .recipe-title {
+        font-size: 1.4rem;
+    }
+    .section-title {
+        font-size: 1rem;
+    }
+    .content-text, .tip-text {
+        font-size: 0.9rem;
     }
 
-    .resultados-pesquisa {
-        width: 90%; /* Largura da caixa de resultados em telas pequenas */
-        height: 50vh; /* Altura da caixa de resultados em telas pequenas */
+    .empty-title {
+        font-size: 1.3rem;
     }
-
-    .item-resultado h2 {
-        font-size: 1.1rem; /* Tamanho da fonte dos títulos em telas pequenas */
+    .empty-subtitle {
+        font-size: 0.9rem;
     }
-
     footer {
-        font-size: 0.9rem; /* Tamanho da fonte do rodapé em telas pequenas */
+        padding: 1.5rem 1rem;
     }
+}
+
+/* Loading Animation (if you implement a loading state for the button) */
+.search-btn.loading .btn-text { /* Assuming button text is wrapped in a span */
+    display: none;
+}
+.search-btn.loading .loading-spinner {
+    display: inline-block;
+}
+.loading-spinner {
+    display: none; /* Hidden by default */
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto; /* If button text is hidden */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
