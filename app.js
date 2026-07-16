@@ -3,26 +3,43 @@ function pesquisar() {
     const campoPesquisaInput = document.getElementById("campo-pesquisa");
     const campoPesquisaValue = campoPesquisaInput.value.toLowerCase().trim();
     const searchButton = document.querySelector(".search-btn");
+    const soccerLoader = document.getElementById("soccer-loader");
 
-    // Optional: Add loading state to button
-    const originalButtonText = "Buscar"; // Store original text
-    searchButton.innerHTML = '<span class="loading-spinner"></span>'; // Show spinner
+    // Se o campo estiver vazio, mostra o estado vazio imediatamente
+    if (!campoPesquisaValue) {
+        section.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">🤔</div>
+                <h3 class="empty-title">Qual receita vamos fazer?</h3>
+                <p class="empty-subtitle">Digite algo no campo de busca para encontrar delícias!</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Oculta os resultados anteriores e exibe a animação do gol
+    section.style.display = "none";
+    soccerLoader.style.display = "flex";
+
+    // Reinicia a animação do gol recriando os elementos internos para reiniciar as animações CSS
+    soccerLoader.innerHTML = `
+        <div class="field-line"></div>
+        <div class="goalpost">
+            <div class="net-pattern"></div>
+        </div>
+        <div class="soccer-ball">⚽</div>
+        <div class="goooal-text">GOOOOL! 🇧🇷</div>
+    `;
+
+    // Desabilita o botão de busca durante a animação
     searchButton.disabled = true;
 
-    // Simulate a delay for loading (remove in production or for fast searches)
+    // Aguarda o término da animação do gol (aproximadamente 2 segundos) antes de mostrar os resultados
     setTimeout(() => {
-        if (!campoPesquisaValue) {
-            section.innerHTML = `
-                <div class="empty-state">
-                    <div class="empty-icon">🤔</div>
-                    <h3 class="empty-title">Qual receita vamos fazer?</h3>
-                    <p class="empty-subtitle">Digite algo no campo de busca para encontrar delícias!</p>
-                </div>
-            `;
-            searchButton.innerHTML = originalButtonText; // Restore button text
-            searchButton.disabled = false;
-            return;
-        }
+        // Oculta a animação e reexibe a seção de resultados
+        soccerLoader.style.display = "none";
+        section.style.display = "grid";
+        searchButton.disabled = false;
 
         let resultadosHTML = "";
         let encontrados = 0;
@@ -113,10 +130,7 @@ function pesquisar() {
             section.innerHTML = resultadosHTML;
         }
 
-        searchButton.innerHTML = originalButtonText; // Restore button text
-        searchButton.disabled = false;
-
-    }, 300); // End of setTimeout (delay for spinner visibility)
+    }, 2000); // Tempo da animação do gol (2 segundos)
 }
 
 // Allow search on Enter key in the input field
