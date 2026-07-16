@@ -1,3 +1,4 @@
+/* Retro World Cup Theme (Verde e Amarelo) */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +7,14 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: radial-gradient(circle, #009c3b 0%, #006420 100%); /* Verde Bandeira do Brasil */
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    color: #333; /* Default text color for card content */
+    color: #333;
 }
 
-/* Animated background elements */
+/* Animated background elements with retro yellow/green stars and circles */
 .bg-animation {
     position: fixed;
     top: 0;
@@ -27,7 +28,7 @@ body {
 .floating-element {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 223, 0, 0.15); /* Amarelo Canarinho */
     animation: float 6s ease-in-out infinite;
 }
 
@@ -36,6 +37,7 @@ body {
     height: 80px;
     top: 10%;
     left: 10%;
+    background: rgba(255, 223, 0, 0.2);
     animation-delay: 0s;
 }
 
@@ -44,6 +46,7 @@ body {
     height: 60px;
     top: 20%;
     right: 10%;
+    background: rgba(255, 255, 255, 0.15);
     animation-delay: 2s;
 }
 
@@ -52,6 +55,7 @@ body {
     height: 100px;
     bottom: 20%;
     left: 15%;
+    background: rgba(255, 223, 0, 0.1);
     animation-delay: 4s;
 }
 
@@ -63,29 +67,32 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 3rem 1rem 1.5rem;
     position: relative;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, #fff, #f8f9ff);
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ffdf00, #fffb00); /* Amarelo Ouro Retro */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent; /* Standard property */
-    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    text-fill-color: transparent;
+    text-shadow: 3px 3px 0px #002776, 6px 6px 0px rgba(0, 0, 0, 0.2); /* Sombra azul retro e 3D */
     margin-bottom: 0.5rem;
     letter-spacing: -1px;
+    text-transform: uppercase;
 }
 
 .subtitle {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+    color: #ffdf00;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
 }
 
 /* Search Section */
@@ -104,17 +111,16 @@ header {
 
 .search-input {
     width: 100%;
-    padding: 1.2rem 1.5rem 1.2rem 3.5rem; /* Right padding adjusted for button */
-    border: none;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
+    padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+    border: 3px solid #ffdf00; /* Borda amarela retro */
+    border-radius: 30px;
+    background: #002776; /* Azul da bandeira */
     color: white;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 600;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.3); /* Sombra retro sólida */
 }
 
 .search-input::placeholder {
@@ -122,9 +128,9 @@ header {
 }
 
 .search-input:focus {
-    background: rgba(255, 255, 255, 0.25);
+    background: #003399;
     transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .search-icon {
@@ -132,243 +138,340 @@ header {
     left: 1.2rem;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
-    pointer-events: none; /* So it doesn't interfere with input click */
+    color: #ffdf00;
+    font-size: 1.2rem;
+    pointer-events: none;
 }
 
 .search-btn {
     position: absolute;
     right: 8px;
     top: 50%;
-    transform: translateY(-50%); /* Vertically center button */
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border: none;
-    border-radius: 20px;
-    padding: 0.8rem 1.5rem; /* Adjust padding as needed */
-    height: calc(100% - 16px); /* Make button height responsive to input padding */
-    color: white;
-    font-weight: 500;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #ffdf00, #ffd700);
+    border: 2px solid #002776;
+    border-radius: 25px;
+    padding: 0.8rem 1.8rem;
+    height: calc(100% - 16px);
+    color: #002776;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0px #002776;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .search-btn:hover {
-    transform: translateY(calc(-50% - 2px)); /* Adjust hover transform */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(calc(-50% - 2px));
+    box-shadow: 0 6px 0px #002776;
+}
+
+.search-btn:active {
+    transform: translateY(calc(-50% + 2px));
+    box-shadow: 0 2px 0px #002776;
+}
+
+/* Soccer Ball Goal Animation */
+.soccer-loader-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 220px;
+    margin: 2rem auto;
+    background: #00802b; /* Gramado verde */
+    border: 4px solid #ffdf00;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.field-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.goalpost {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    bottom: 30px;
+    width: 60px;
+    border: 4px solid #ffffff;
+    border-left: none;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.net-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.3) 2px, transparent 2px),
+                      linear-gradient(90deg, rgba(255,255,255,0.3) 2px, transparent 2px);
+    background-size: 10px 10px;
+}
+
+.soccer-ball {
+    position: absolute;
+    left: -50px;
+    font-size: 3rem;
+    z-index: 3;
+    animation: rollToGoal 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.goooal-text {
+    position: absolute;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #ffdf00;
+    text-shadow: 3px 3px 0px #002776, -3px -3px 0px #002776, 3px -3px 0px #002776, -3px 3px 0px #002776;
+    opacity: 0;
+    transform: scale(0.5);
+    z-index: 4;
+    animation: showGoalText 0.5s ease 1.3s forwards;
+}
+
+@keyframes rollToGoal {
+    0% {
+        left: -50px;
+        transform: rotate(0deg) scale(0.8);
+    }
+    70% {
+        left: calc(100% - 100px);
+        transform: rotate(720deg) scale(1);
+    }
+    80% {
+        left: calc(100% - 60px); /* Hits the net */
+        transform: rotate(850deg) scale(1.1);
+    }
+    90% {
+        left: calc(100% - 80px); /* Rebounds slightly */
+        transform: rotate(800deg) scale(1);
+    }
+    100% {
+        left: calc(100% - 70px); /* Settles in net */
+        transform: rotate(820deg) scale(1);
+    }
+}
+
+@keyframes showGoalText {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 /* Results Container */
 .results-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem 2rem; /* Added bottom padding */
-    min-height: 300px; /* Adjusted min-height */
+    padding: 0 2rem 2rem;
+    min-height: 300px;
 }
 
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly smaller min for cards */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
 
-/* Recipe Cards */
+/* Recipe Cards - Retro Brazil Style */
 .recipe-card {
-    background: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
-    /* backdrop-filter: blur(20px); Removed for potentially better performance on some devices, can be added back */
-    border-radius: 20px;
+    background: #ffffff;
+    border: 4px solid #002776; /* Borda azul retro */
+    border-radius: 15px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother transition */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex; /* Added for flex layout if needed */
-    flex-direction: column; /* Stack header and content vertically */
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 0px #002776; /* Sombra sólida retro */
+    display: flex;
+    flex-direction: column;
 }
 
 .recipe-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 0px #002776;
 }
 
 .card-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #002776 0%, #001a4e 100%); /* Azul escuro */
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
-}
-
-.card-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    transform: rotate(45deg);
+    border-bottom: 4px solid #ffdf00; /* Divisor amarelo */
 }
 
 .recipe-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem; /* Slightly larger title */
-    font-weight: 600;
-    color: white;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffdf00; /* Título amarelo */
     margin: 0;
     position: relative;
     z-index: 1;
+    text-shadow: 1px 1px 0px #000;
 }
 
 .card-content {
     padding: 1.5rem;
-    flex-grow: 1; /* Allows content to fill space if card heights vary */
-}
-
-/* This targets your <strong> tags within content-text if needed, or use a specific class */
-.content-text strong {
-    color: #555; /* Example: slightly darker for emphasis */
-    font-weight: 600;
+    flex-grow: 1;
 }
 
 .section-title {
-    font-weight: 600;
-    color: #2d3748; /* Dark grayish blue */
-    margin-top: 1rem;
+    font-weight: 800;
+    color: #002776;
+    margin-top: 1.2rem;
     margin-bottom: 0.8rem;
-    font-size: 1.1rem; /* Slightly larger section titles */
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-transform: uppercase;
 }
+
 .section-title:first-child {
     margin-top: 0;
 }
 
-.section-title::before { /* Decorative element for section titles */
+.section-title::before {
     content: '';
-    width: 4px;
-    height: 18px; /* Slightly taller */
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    width: 6px;
+    height: 18px;
+    background: #ffdf00; /* Detalhe amarelo */
+    border: 1px solid #002776;
     border-radius: 2px;
 }
 
 .content-text {
-    color: #4a5568; /* Slate gray */
+    color: #1a202c;
     line-height: 1.6;
     margin-bottom: 1.2rem;
     font-size: 0.95rem;
+    font-weight: 500;
 }
-.content-text p, .content-text div { /* Ensure paragraphs inside .content-text have spacing if they exist */
+
+.content-text p, .content-text div {
     margin-bottom: 0.5em;
 }
-.content-text br { /* Ensure <br> tags are properly spaced if needed, usually not an issue */
-    display: block; /* or 'content' with 'margin' */
-    margin-bottom: 0.5em; /* Adjust spacing after a <br> if desired */
-}
-
 
 .tip-section {
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0aa 100%); /* Lighter, slightly transparent */
+    background: #fffdf0; /* Fundo amarelo bem clarinho */
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 10px;
     margin-top: 1rem;
-    border: 1px solid rgba(200, 210, 220, 0.5);
+    border: 2px dashed #ffdf00;
 }
 
 .tip-title {
-    color: #2b6cb0; /* Indigo */
-    font-weight: 600;
+    color: #002776;
+    font-weight: 800;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
 .tip-text {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+/* Highlight search terms in green/yellow */
+.highlight {
+    background-color: #ffdf00;
+    color: #002776;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: bold;
 }
 
 /* Empty State & No Results */
 .empty-state {
     text-align: center;
     padding: 4rem 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    width: 100%; /* Ensure it spans the grid column if it's the only child */
-    grid-column: 1 / -1; /* Make it span all columns in the grid */
+    color: #ffdf00;
+    width: 100%;
+    grid-column: 1 / -1;
 }
 
 .empty-icon {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 1rem;
-    opacity: 0.6;
+    text-shadow: 2px 2px 0px #002776;
 }
 
 .empty-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0px #002776;
+    text-transform: uppercase;
 }
 
 .empty-subtitle {
-    font-size: 1rem;
-    opacity: 0.8;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    color: rgba(255, 255, 255, 0.8);
+    background: #002776;
+    color: #ffdf00;
     text-align: center;
     padding: 2rem;
-    margin-top: 3rem; /* Ensure space above footer */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    border-top: 4px solid #ffdf00;
 }
 
 footer p {
     margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-footer a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-}
-footer a:hover {
-    text-decoration: underline;
-    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffdf00;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .logo {
-        font-size: 2.8rem; /* Adjusted */
+        font-size: 3rem;
     }
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
-
     .results-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust card min-width */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1.5rem;
     }
-
-    .search-box {
-        margin: 0 1rem; /* Add horizontal margin for search box on smaller screens */
-    }
-    .search-container {
-        padding: 0 1rem;
-    }
-    .results-container {
-        padding: 0 1rem 2rem;
-    }
-
-    .floating-element { /* Optionally hide fewer or make them smaller */
-        display: none; /* Hides all floating elements on smaller screens */
+    .floating-element {
+        display: none;
     }
 }
 
